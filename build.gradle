@@ -1,0 +1,36 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.7.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.vaibhav.quartz.scheduler'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.0'
+	compile group: 'org.quartz-scheduler', name: 'quartz-jobs', version: '2.3.0'
+	compile group: 'org.springframework', name: 'spring-support', version: '2.0.6'
+	compile group: 'org.springframework', name: 'spring-jdbc', version: '5.0.0.RELEASE'
+
+	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
